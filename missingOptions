@@ -1,0 +1,67 @@
+## WebHostingPlan operations
+ListAppServicePlans($ResourceGroupName)
+GetAppServicePlan($ResourceGroupName, $PlanName)
+CreateAppServicePlan($ResourceGroupName, $Location, $PlanName, $SkuName = "F1", $SkuTier = "Free")
+DeleteAppServicePlan($ResourceGroupName, $PlanName)
+## Site operations
+ListWebApps($ResourceGroupName)
+GetWebApp($ResourceGroupName, $SiteName, $Slot)
+CreateWebApp($ResourceGroupName, $Location, $SiteName, $PlanName, $Slot)
+SetWebApp($ResourceGroupName, $SiteName, $ConfigObject, $Slot)
+DeleteWebApp($ResourceGroupName, $SiteName, $Slot)
+GetSiteAppServicePlanId($ResourceGroupName, $SiteName, $Slot)
+StopWebApp($ResourceGroupName, $SiteName, $Slot)
+StopWebAppAndScm($ResourceGroupName, $SiteName, $Slot)
+StartWebApp($ResourceGroupName, $SiteName, $Slot)
+GetWebAppInstances($ResourceGroupName, $SiteName, $Slot)
+## Site config operations
+GetWebAppConfig($ResourceGroupName, $SiteName, $Slot)
+SetWebAppConfig($ResourceGroupName, $SiteName, $ConfigObject, $Slot)
+GetPHPVersion($ResourceGroupName, $SiteName, $Slot)
+SetPHPVersion($ResourceGroupName, $SiteName, $PHPVersion, $Slot)
+SetCorsUrls($ResourceGroupName, $SiteName, $CorsUrls, $Slot)
+## App Settings
+GetWebAppAppSettings($ResourceGroupName, $SiteName, $Slot)
+SetWebAppAppSettings($ResourceGroupName, $SiteName, $AppSettingsObject, $Slot)
+GetWebAppConnectionStrings($ResourceGroupName, $SiteName, $Slot)
+SetWebAppConnectionStrings($ResourceGroupName, $SiteName, $ConnectionStringsObject, $Slot)
+
+## Slot settings
+
+GetSlotSettings($ResourceGroupName, $SiteName)
+# Example call: SetSlotSettings MyResourceGroup MySite @{ appSettingNames = @("Setting1"); connectionStringNames = @("Conn1","Conn2") }
+SetSlotSettings($ResourceGroupName, $SiteName, $SlotSettingsObject)
+
+## Log settings
+GetWebAppLogSettings($ResourceGroupName, $SiteName, $Slot)
+TurnOnApplicationLogs($ResourceGroupName, $SiteName, $Level, $Slot)
+DeployCloudHostedPackage($ResourceGroupName, $SiteName, $packageUrl, $Slot)
+GetPublishingProfile($ResourceGroupName, $SiteName, $Slot)
+GetPublishingCredentials($ResourceGroupName, $SiteName, $Slot)
+HookupExternalGitRepo($ResourceGroupName, $SiteName, $repoUrl, $Slot)
+GetGitDeployments($ResourceGroupName, $SiteName, $Slot)
+## WebJobs operations
+ListTriggeredWebJob($ResourceGroupName, $SiteName, $Slot)
+GetTriggeredWebJob($ResourceGroupName, $SiteName, $WebJobName, $Slot)
+GetTriggeredWebJobHistory($ResourceGroupName, $SiteName, $WebJobName, $Slot)
+RunTriggeredWebJob($ResourceGroupName, $SiteName, $WebJobName, $Slot)
+StartContinuousWebJob($ResourceGroupName, $SiteName, $WebJobName, $Slot)
+StopContinuousWebJob($ResourceGroupName, $SiteName, $WebJobName, $Slot)
+
+## Functions operations
+Function CreateFunctionApp($ResourceGroupName, $Location, $SiteName, $StorageConnectionString, $FuncVersion)
+Function SyncFunctionAppTriggers($ResourceGroupName, $SiteName, $Slot)
+DeployHttpTriggerFunction($ResourceGroupName, $SiteName, $FunctionName, $CodeFile, $TestData, $Slot)
+GetFunctionInvokeUrl($ResourceGroupName, $SiteName, $FunctionName, $Slot)
+## Site extension operations
+Function ListWebAppSiteExtensions($ResourceGroupName, $SiteName, $Slot)
+Function InstallSiteExtension($ResourceGroupName, $SiteName, $Name, $Slot)
+UninstallSiteExtension($ResourceGroupName, $SiteName, $Name, $Slo
+UploadCert($ResourceGroupName, $Location, $PfxPath, $PfxPassword, $CertName)
+Function DeleteCert($ResourceGroupName, $CertName)
+## Premium Add-Ons
+AddZrayAddon($ResourceGroupName, $Location, $SiteName, $Name, $PlanName, $Slot)
+RemoveWebAppAddon($ResourceGroupName, $SiteName, $Name, $Slot)
+SetUserDeploymentCredentials($UserName, $Password)
+Function GetWebAppAddons($ResourceGroupName, $SiteName, $Slot)
+
